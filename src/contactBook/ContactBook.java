@@ -90,6 +90,7 @@ public class ContactBook {
         }
         return null;
     }
+
     public void initializeIterator() {
         currentContact = 0;
     }
