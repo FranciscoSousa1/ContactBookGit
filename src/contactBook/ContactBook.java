@@ -79,7 +79,17 @@ public class ContactBook {
             tmp[i] = contacts[i];
         contacts = tmp;
     }
-
+    public Contact contactGivenPhoneNumber(int phone)
+    {
+        for (int i = 0; i < counter; i++)
+        {
+            if (contacts[i].getPhone() == phone)
+            {
+                return contacts[i];
+            }
+        }
+        return null;
+    }
     public void initializeIterator() {
         currentContact = 0;
     }
