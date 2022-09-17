@@ -1,7 +1,5 @@
 package contactBook;
 
-import contactBook.Contact;
-
 public class ContactBook {
     static final int DEFAULT_SIZE = 100;
 
@@ -79,6 +77,7 @@ public class ContactBook {
             tmp[i] = contacts[i];
         contacts = tmp;
     }
+    
     public Contact contactGivenPhoneNumber(int phone)
     {
         for (int i = 0; i < counter; i++)
@@ -89,6 +88,23 @@ public class ContactBook {
             }
         }
         return null;
+    }
+    
+    public boolean repeatedPhonesExist() {
+    	int[] phones = new int[contacts.length];
+    	int phone;
+    	
+    	for(int i = 0; i < contacts.length; i++) {
+    		phone = contacts[i].getPhone();
+    		
+    		for(int j = 0; j < i; j++)		//checks if any of the previous contacts has the same phone number
+    			if(phone == phones[j])		
+					return true;			//if so, returns true
+    		
+			phones[i] = phone;				//if not, adds it to the list
+    	}
+    
+    	return false;						//if the loop ends it means there are no repeated phone numbers and returns false
     }
 
     public void initializeIterator() {
