@@ -25,6 +25,8 @@ public class Main {
     public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
     public static final String NUMBER_NOT_EXIST = "Phone number does not exist.";
+    public static final String SHARE_PHONE = "There are contacts that share phone numbers.";
+    public static final String CONTACTS_ALL_DIFFERENT = "All contacts have different phone numbers.";
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
 
@@ -168,6 +170,12 @@ public class Main {
     }
 
     private static void repeatedNumber(ContactBook cBook) {
-
+        boolean exists;
+        exists = cBook.repeatedPhonesExist();
+        if(exists){
+            System.out.println(SHARE_PHONE);
+        }else{
+            System.out.println(CONTACTS_ALL_DIFFERENT);
+        }
     }
 }
