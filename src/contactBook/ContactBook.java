@@ -78,7 +78,7 @@ public class ContactBook {
         contacts = tmp;
     }
     
-    public Contact contactGivenPhoneNumber(int phone)
+    public Contact getContactGivenPhoneNumber(int phone)
     {
         for (int i = 0; i < counter; i++)
         {
