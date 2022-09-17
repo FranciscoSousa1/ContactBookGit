@@ -91,16 +91,21 @@ public class ContactBook {
     }
     
     public boolean repeatedPhonesExist() {
-    	int[] phones = new int[contacts.length];
+
+        if(getNumberOfContacts() == 0) {    //checks if there are no contacts
+            return false;                   //if so, returns false
+        }
+
+    	int[] phones = new int[counter];
     	int phone;
     	
-    	for(int i = 0; i < contacts.length; i++) {
+    	for(int i = 0; i < counter; i++) {
     		phone = contacts[i].getPhone();
-    		
+
     		for(int j = 0; j < i; j++)		//checks if any of the previous contacts has the same phone number
-    			if(phone == phones[j])		
+    			if(phone == phones[j])
 					return true;			//if so, returns true
-    		
+
 			phones[i] = phone;				//if not, adds it to the list
     	}
     
